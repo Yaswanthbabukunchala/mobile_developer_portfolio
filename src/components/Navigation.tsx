@@ -42,7 +42,7 @@ const Navigation = () => {
             className="text-2xl font-bold"
           >
             <span className="text-gradient">Mobile</span>
-            <span className="text-white">Dev</span>
+            <span className="text-foreground">Dev</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -54,7 +54,7 @@ const Navigation = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
               >
                 {item.name}
               </motion.a>
@@ -69,7 +69,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white"
+              className="text-foreground"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -89,7 +89,7 @@ const Navigation = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-300 hover:text-white transition-colors"
+                className="block py-2 text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.name}
               </a>
