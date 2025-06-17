@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ExternalLink, Github, Play, Eye, Calendar, Users, Star } from "lucide-react";
+import { ExternalLink, Github, Play, Eye, Calendar, Users, Star, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -10,129 +10,209 @@ const ProjectsSection = () => {
   const [filter, setFilter] = useState("All");
   
   const projects = [
+    // Cars Category
     {
       id: 1,
-      title: "EcoDelivery - Sustainable Food Delivery",
-      description: "Revolutionary food delivery app promoting sustainable practices with carbon footprint tracking and eco-friendly restaurant partnerships.",
+      title: "AutoTempest - Car Search",
+      description: "Comprehensive car search platform aggregating listings from multiple sources with advanced filtering and real-time updates.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Flutter",
-      tags: ["Flutter", "Firebase", "Google Maps", "Payment Gateway", "Push Notifications", "Analytics", "ML Integration"],
-      github: "https://github.com/example/ecodelivery",
-      demo: "https://ecodelivery-demo.com",
-      stats: {
-        downloads: "50K+",
-        rating: 4.8,
-        users: "25K+"
-      },
-      duration: "6 months",
-      team: "4 developers",
-      featured: true
+      category: "Cars",
+      platform: "Android",
+      tags: ["Kotlin", "REST API", "SQLite", "Material Design", "Google Maps", "Analytics", "Push Notifications"],
+      playStore: "https://play.google.com/store/apps/details?id=com.tempestsystems.autotempest&hl=en_US&gl=US",
+      stats: { downloads: "100K+", rating: 4.6, users: "50K+" },
+      duration: "8 months",
+      team: "5 developers"
     },
     {
       id: 2,
-      title: "FinanceTracker Pro - Personal Finance Manager",
-      description: "Comprehensive personal finance management app with AI-powered insights, expense categorization, and investment tracking.",
+      title: "Autos Today - Buy & Sell Cars",
+      description: "Modern marketplace for buying and selling vehicles with integrated chat, photo gallery, and secure payment processing.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Swift",
-      tags: ["Swift", "SwiftUI", "Core Data", "CloudKit", "Charts", "Biometric Auth", "Siri Integration"],
-      github: "https://github.com/example/financetracker",
-      demo: "https://financetracker-demo.com",
-      stats: {
-        downloads: "100K+",
-        rating: 4.9,
-        users: "75K+"
-      },
-      duration: "8 months",
-      team: "3 developers",
-      featured: true
+      category: "Cars",
+      platform: "Android",
+      tags: ["Kotlin", "Firebase", "Camera2 API", "Payment Gateway", "Real-time Chat", "Image Processing"],
+      playStore: "https://play.google.com/store/apps/details?id=com.caripa.seller&hl=en_US&gl=US",
+      stats: { downloads: "75K+", rating: 4.4, users: "35K+" },
+      duration: "6 months",
+      team: "4 developers"
     },
     {
       id: 3,
-      title: "FitnessBuddy - AI Workout Companion",
-      description: "AI-powered fitness app with personalized workout plans, form correction using computer vision, and social features.",
+      title: "CarGurus Dealer",
+      description: "Professional dealer management platform with inventory tracking, customer communication, and analytics dashboard.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Kotlin",
-      tags: ["Kotlin", "Jetpack Compose", "TensorFlow Lite", "Camera2 API", "Room", "WorkManager", "Material You"],
-      github: "https://github.com/example/fitnessbuddy",
-      demo: "https://fitnessbuddy-demo.com",
-      stats: {
-        downloads: "200K+",
-        rating: 4.7,
-        users: "150K+"
-      },
+      category: "Cars",
+      platform: "Cross-Platform",
+      tags: ["Flutter", "Swift", "Kotlin", "Dashboard UI", "Analytics", "CRM Integration", "Cloud Sync"],
+      playStore: "https://play.google.com/store/apps/details?id=com.cargurus.dealer.app&hl=en_US&gl=US",
+      appStore: "https://apps.apple.com/us/app/cargurus-dealer/id1585027728",
+      stats: { downloads: "200K+", rating: 4.7, users: "80K+" },
       duration: "10 months",
-      team: "5 developers",
-      featured: true
+      team: "6 developers"
     },
     {
       id: 4,
-      title: "TravelMate - Smart Travel Planner",
-      description: "Intelligent travel planning app with offline maps, real-time translations, and collaborative trip planning features.",
+      title: "Carsforsale.com Dealer",
+      description: "Dealer-focused application for managing vehicle listings, customer inquiries, and sales analytics.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Flutter",
-      tags: ["Flutter", "Maps SDK", "Translation API", "Offline Storage", "Collaborative Features", "Weather API"],
-      github: "https://github.com/example/travelmate",
-      demo: "https://travelmate-demo.com",
-      stats: {
-        downloads: "80K+",
-        rating: 4.6,
-        users: "40K+"
-      },
-      duration: "7 months",
-      team: "3 developers",
-      featured: false
+      category: "Cars",
+      platform: "Android",
+      tags: ["Kotlin", "Jetpack Compose", "Room Database", "WorkManager", "Material You", "OAuth"],
+      playStore: "https://play.google.com/store/apps/details?id=com.carsforsale.dealerspider&hl=en_US&gl=US",
+      stats: { downloads: "50K+", rating: 4.5, users: "25K+" },
+      duration: "5 months",
+      team: "3 developers"
     },
     {
       id: 5,
-      title: "MindfulMoments - Meditation & Wellness",
-      description: "Comprehensive meditation and wellness app with guided sessions, progress tracking, and community features.",
+      title: "Hemmings - Classic Cars",
+      description: "Premium classic car marketplace with auction features, detailed specifications, and collector community.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Swift",
-      tags: ["Swift", "HealthKit", "AVFoundation", "Core Animation", "CloudKit", "Apple Watch"],
-      github: "https://github.com/example/mindfulmoments",
-      demo: "https://mindfulmoments-demo.com",
-      stats: {
-        downloads: "120K+",
-        rating: 4.8,
-        users: "60K+"
-      },
-      duration: "5 months",
-      team: "2 developers",
-      featured: false
+      category: "Cars",
+      platform: "Cross-Platform",
+      tags: ["Flutter", "Swift", "Auction System", "Community Features", "Video Streaming", "In-App Purchase"],
+      playStore: "https://play.google.com/store/apps/details?id=com.hemmings&hl=en_US&gl=US",
+      appStore: "https://apps.apple.com/us/app/hemmings/id6444405557",
+      stats: { downloads: "30K+", rating: 4.8, users: "15K+" },
+      duration: "7 months",
+      team: "4 developers"
     },
+
+    // Gym Category
     {
       id: 6,
-      title: "SmartHome Controller",
-      description: "IoT smart home management app with voice control, automation, and energy monitoring capabilities.",
+      title: "SHRED: Gym & Home Workout",
+      description: "Comprehensive fitness app with personalized workout plans, progress tracking, and AI-powered form correction.",
       image: "/placeholder.svg?height=400&width=600",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      category: "Kotlin",
-      tags: ["Kotlin", "IoT Integration", "Voice Recognition", "Bluetooth", "WiFi Direct", "Custom UI"],
-      github: "https://github.com/example/smarthome",
-      demo: "https://smarthome-demo.com",
-      stats: {
-        downloads: "30K+",
-        rating: 4.5,
-        users: "15K+"
-      },
+      category: "Gym",
+      platform: "Android",
+      tags: ["Kotlin", "TensorFlow Lite", "HealthKit", "Custom UI", "Video Streaming", "ML Integration", "Wearables"],
+      playStore: "https://play.google.com/store/apps/details?id=app.shred.android&hl=en_US&gl=US",
+      stats: { downloads: "500K+", rating: 4.7, users: "250K+" },
       duration: "9 months",
-      team: "4 developers",
-      featured: false
+      team: "5 developers"
+    },
+    {
+      id: 7,
+      title: "Blast - Gym Workout Tracker",
+      description: "Advanced workout tracking with social features, exercise library, and performance analytics.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Gym",
+      platform: "Android",
+      tags: ["Kotlin", "Room Database", "Charts", "Social Features", "Cloud Sync", "Offline Mode"],
+      playStore: "https://play.google.com/store/apps/details?id=com.madmustachecompany.workoutapp&hl=en_US&gl=US",
+      stats: { downloads: "100K+", rating: 4.5, users: "60K+" },
+      duration: "6 months",
+      team: "3 developers"
+    },
+    {
+      id: 8,
+      title: "Fitness App: Gym Workout Plan",
+      description: "iOS fitness application with customizable workout plans, nutrition tracking, and Apple Watch integration.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Gym",
+      platform: "iOS",
+      tags: ["Swift", "SwiftUI", "HealthKit", "Apple Watch", "Core Data", "CloudKit", "Siri Integration"],
+      appStore: "https://apps.apple.com/us/app/fitness-app-gym-workout-plan/id1114387800",
+      stats: { downloads: "80K+", rating: 4.6, users: "40K+" },
+      duration: "7 months",
+      team: "3 developers"
+    },
+
+    // Social Media Category
+    {
+      id: 9,
+      title: "Fanbase - Creator Platform",
+      description: "Social platform connecting fans with creators through exclusive content, live streams, and community features.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Social Media",
+      platform: "Cross-Platform",
+      tags: ["Flutter", "Swift", "Live Streaming", "Payment Processing", "Real-time Chat", "Content Management", "Push Notifications"],
+      playStore: "https://play.google.com/store/apps/details?id=com.fanbase&hl=en_US&gl=US",
+      appStore: "https://apps.apple.com/us/app/fanbase/id1439232869",
+      stats: { downloads: "300K+", rating: 4.3, users: "150K+" },
+      duration: "12 months",
+      team: "8 developers"
+    },
+    {
+      id: 10,
+      title: "Spill - Anonymous Social",
+      description: "Anonymous social platform for authentic conversations with mood-based matching and secure messaging.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Social Media",
+      platform: "Cross-Platform",
+      tags: ["Flutter", "Swift", "Kotlin", "End-to-End Encryption", "Anonymous Messaging", "Mood Analysis", "AI Moderation"],
+      playStore: "https://play.google.com/store/apps/details?id=com.spill.spill&hl=en_US&gl=US",
+      appStore: "https://apps.apple.com/us/app/spill-app/id1672615367",
+      stats: { downloads: "150K+", rating: 4.4, users: "75K+" },
+      duration: "8 months",
+      team: "6 developers"
+    },
+
+    // Messaging Category
+    {
+      id: 11,
+      title: "Never Alone.Love",
+      description: "Mental health support platform with peer connections, crisis intervention, and wellness tracking.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Messaging",
+      platform: "Android",
+      tags: ["Kotlin", "WebRTC", "Crisis Detection", "Peer Support", "Wellness Tracking", "Security", "Real-time"],
+      playStore: "https://play.google.com/store/apps/details?id=com.chopra.neveralone&hl=en_US&gl=US",
+      stats: { downloads: "25K+", rating: 4.9, users: "12K+" },
+      duration: "10 months",
+      team: "4 developers"
+    },
+    {
+      id: 12,
+      title: "Hucu: HIPAA Compliant Texting",
+      description: "Secure healthcare communication platform with HIPAA compliance, encrypted messaging, and audit trails.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Messaging",
+      platform: "Android",
+      tags: ["Kotlin", "End-to-End Encryption", "HIPAA Compliance", "Audit Logging", "Medical Integration", "Security"],
+      playStore: "https://play.google.com/store/apps/details?id=com.hucu.ai&hl=en_US&gl=US",
+      stats: { downloads: "40K+", rating: 4.7, users: "20K+" },
+      duration: "9 months",
+      team: "5 developers"
+    },
+
+    // Rent Apps Category
+    {
+      id: 13,
+      title: "Rentler - Apartment Search",
+      description: "Modern apartment rental platform with virtual tours, application processing, and tenant screening.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Rent Apps",
+      platform: "Cross-Platform",
+      tags: ["Flutter", "Swift", "Virtual Tours", "Document Processing", "Payment Gateway", "Geolocation", "Background Checks"],
+      playStore: "https://play.google.com/store/apps/details?id=com.rentler.mobile&hl=en_US&gl=US",
+      appStore: "https://apps.apple.com/us/app/rentler/id1522924754",
+      stats: { downloads: "200K+", rating: 4.5, users: "100K+" },
+      duration: "11 months",
+      team: "7 developers"
+    },
+    {
+      id: 14,
+      title: "RentHop - Apartments for Rent",
+      description: "Comprehensive rental search with neighborhood insights, broker tools, and application management.",
+      image: "/placeholder.svg?height=400&width=600",
+      category: "Rent Apps",
+      platform: "Android",
+      tags: ["Kotlin", "Google Maps", "Neighborhood Data", "Broker Tools", "Application System", "Reviews"],
+      playStore: "https://play.google.com/store/apps/details?id=com.renthop.renthopconsumer&hl=en_US&gl=US",
+      stats: { downloads: "150K+", rating: 4.4, users: "75K+" },
+      duration: "8 months",
+      team: "5 developers"
     }
   ];
 
-  const categories = ["All", "Flutter", "Swift", "Kotlin"];
+  const categories = ["All", "Cars", "Gym", "Social Media", "Messaging", "Rent Apps"];
   
   const filteredProjects = filter === "All" 
     ? projects 
     : projects.filter(project => project.category === filter);
-
-  const featuredProjects = projects.filter(project => project.featured);
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -147,10 +227,10 @@ const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Featured</span> <span className="text-gradient">Projects</span>
+            <span className="text-foreground">Featured</span> <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Showcase of innovative mobile applications that have made a significant impact in their respective industries
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Real-world mobile applications developed across various industries with millions of downloads
           </p>
         </motion.div>
 
@@ -159,17 +239,17 @@ const ProjectsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-12 overflow-x-auto"
         >
-          <div className="glass-effect rounded-full p-2 flex space-x-2">
+          <div className="glass-effect rounded-full p-2 flex space-x-2 min-w-max">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
                   filter === category
                     ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-                    : "text-gray-300 hover:text-white hover:bg-white/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                 }`}
               >
                 {category}
@@ -178,8 +258,8 @@ const ProjectsSection = () => {
           </div>
         </motion.div>
 
-        {/* Featured Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -189,7 +269,7 @@ const ProjectsSection = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="project-card group"
             >
-              {/* Project Image/Video */}
+              {/* Project Image */}
               <div className="relative overflow-hidden rounded-t-2xl">
                 <img
                   src={project.image}
@@ -198,12 +278,24 @@ const ProjectsSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
+                {/* Platform Badge */}
+                <div className="absolute top-4 left-4">
+                  <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm">
+                    <Smartphone className="h-3 w-3 mr-1" />
+                    {project.platform}
+                  </Badge>
+                </div>
+
                 {/* Overlay Buttons */}
                 <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
-                    <Play className="h-4 w-4 mr-1" />
-                    Video
-                  </Button>
+                  {project.playStore && (
+                    <a href={project.playStore} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
+                        <Play className="h-4 w-4 mr-1" />
+                        Play Store
+                      </Button>
+                    </a>
+                  )}
                   <Link to={`/project/${project.id}`}>
                     <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
                       <Eye className="h-4 w-4 mr-1" />
@@ -216,33 +308,25 @@ const ProjectsSection = () => {
               {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                  <Badge variant="secondary" className="bg-blue-500/20 text-blue-400">
                     {project.category}
                   </Badge>
-                  <div className="flex space-x-2">
-                    <a href={project.github} className="text-gray-400 hover:text-white transition-colors">
-                      <Github className="h-4 w-4" />
-                    </a>
-                    <a href={project.demo} className="text-gray-400 hover:text-white transition-colors">
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-3 w-3 text-yellow-400" />
+                    <span className="text-sm text-muted-foreground">{project.stats.rating}</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Project Stats */}
-                <div className="flex items-center justify-between mb-4 text-sm text-gray-400">
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-3 w-3 text-yellow-400" />
-                    <span>{project.stats.rating}</span>
-                  </div>
+                <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
                   <div className="flex items-center space-x-1">
                     <Users className="h-3 w-3" />
                     <span>{project.stats.users}</span>
@@ -251,11 +335,14 @@ const ProjectsSection = () => {
                     <Calendar className="h-3 w-3" />
                     <span>{project.duration}</span>
                   </div>
+                  <div>
+                    {project.stats.downloads}
+                  </div>
                 </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1">
-                  {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                  {project.tags.slice(0, 6).map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
                       className="px-2 py-1 text-xs bg-white/10 text-blue-300 rounded border border-blue-500/20"
@@ -263,9 +350,9 @@ const ProjectsSection = () => {
                       {tag}
                     </span>
                   ))}
-                  {project.tags.length > 4 && (
-                    <span className="px-2 py-1 text-xs bg-white/10 text-gray-400 rounded">
-                      +{project.tags.length - 4} more
+                  {project.tags.length > 6 && (
+                    <span className="px-2 py-1 text-xs bg-white/10 text-muted-foreground rounded">
+                      +{project.tags.length - 6} more
                     </span>
                   )}
                 </div>
@@ -273,19 +360,6 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* View All Projects Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Button size="lg" variant="outline" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black">
-            View All Projects
-            <ExternalLink className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,65 +13,65 @@ const Navigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
     { name: "Home", href: "#home" },
+    { name: "About", href: "#stats" },
     { name: "Services", href: "#services" },
     { name: "Tech Stack", href: "#tech" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-effect premium-shadow' : 'bg-transparent'
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "glass-effect premium-shadow" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex justify-between items-center py-4">
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-2xl font-bold"
           >
-            <Code2 className="h-8 w-8 text-blue-400" />
-            <span className="text-xl font-bold text-gradient">DevPortfolio</span>
+            <span className="text-gradient">Mobile</span>
+            <span className="text-white">Dev</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="text-gray-300 hover:text-white transition-colors font-medium"
+              >
+                {item.name}
+              </motion.a>
+            ))}
+            <ThemeToggle />
           </div>
 
-          <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
-              Hire Me
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
+              className="text-white"
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -78,25 +79,21 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass-effect rounded-lg mb-4 p-4"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 glass-effect mt-2 rounded-lg">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-              <Button className="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600">
-                Hire Me
-              </Button>
-            </div>
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="block py-2 text-gray-300 hover:text-white transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </motion.div>
         )}
       </div>
