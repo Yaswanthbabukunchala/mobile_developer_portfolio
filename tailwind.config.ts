@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Outfit', 'Inter', 'sans-serif'],
+				sans: ['Poppins', 'Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -63,7 +63,6 @@ export default {
 				'premium-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
 				'tech-gradient': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
 				'hero-gradient': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-				'light-hero-gradient': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

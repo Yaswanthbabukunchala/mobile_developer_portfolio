@@ -1,133 +1,109 @@
 
 import { motion } from "framer-motion";
-import { Smartphone, Globe, Cloud, Zap, Shield, Headphones } from "lucide-react";
+import { Smartphone, Code, Globe, Zap, Shield, Headphones } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
     {
       icon: Smartphone,
-      title: "Mobile App Development",
-      description: "Native iOS & Android apps and cross-platform solutions using Flutter & React Native",
-      features: ["iOS & Android", "Flutter", "React Native", "App Store Optimization"]
+      title: "Native iOS Development",
+      description: "Expert Swift development for premium iOS applications with native performance and seamless user experience.",
+      technologies: ["Swift", "UIKit", "SwiftUI", "Core Data", "ARKit"],
+      color: "from-blue-500 to-blue-600"
+    },
+    {
+      icon: Code,
+      title: "Native Android Development", 
+      description: "High-performance Android apps built with Kotlin, leveraging the latest Android SDK and Material Design.",
+      technologies: ["Kotlin", "Jetpack Compose", "Room", "Hilt", "Coroutines"],
+      color: "from-green-500 to-green-600"
     },
     {
       icon: Globe,
-      title: "Web Development",
-      description: "Modern responsive websites and web applications with cutting-edge technologies",
-      features: ["React & Next.js", "Node.js & Express", "TypeScript", "Responsive Design"]
-    },
-    {
-      icon: Cloud,
-      title: "Backend Development",
-      description: "Scalable server-side solutions, APIs, and cloud infrastructure setup",
-      features: ["REST & GraphQL APIs", "AWS & Firebase", "Database Design", "Microservices"]
+      title: "Cross-Platform Development",
+      description: "Efficient Flutter development for beautiful, natively compiled applications across iOS and Android.",
+      technologies: ["Flutter", "Dart", "Firebase", "Provider", "Bloc"],
+      color: "from-purple-500 to-purple-600"
     },
     {
       icon: Zap,
-      title: "Performance Optimization",
-      description: "Speed up your existing applications and improve user experience",
-      features: ["Code Optimization", "Database Tuning", "CDN Setup", "Caching Strategies"]
+      title: "App Performance Optimization",
+      description: "Comprehensive performance analysis and optimization to ensure your apps run smoothly and efficiently.",
+      technologies: ["Profiling", "Memory Management", "Battery Optimization", "Network Optimization"],
+      color: "from-yellow-500 to-yellow-600"
     },
     {
       icon: Shield,
-      title: "Security & Compliance",
-      description: "Implement robust security measures and ensure compliance standards",
-      features: ["HIPAA Compliance", "Data Encryption", "Security Audits", "Authentication"]
+      title: "Security & Authentication",
+      description: "Robust security implementation including biometric authentication, encryption, and secure data storage.",
+      technologies: ["OAuth", "Biometrics", "Encryption", "Secure Storage", "HTTPS"],
+      color: "from-red-500 to-red-600"
     },
     {
       icon: Headphones,
       title: "Consultation & Support",
-      description: "Technical consultation, code review, and ongoing maintenance support",
-      features: ["Technical Consulting", "Code Review", "24/7 Support", "Team Training"]
+      description: "Strategic consultation for mobile app architecture, technology stack selection, and ongoing support.",
+      technologies: ["Architecture Design", "Code Review", "Technical Consulting", "Maintenance"],
+      color: "from-indigo-500 to-indigo-600"
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header */}
+    <section id="services" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-transparent"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Services I Offer
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-white">Premium</span> <span className="text-gradient">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From concept to deployment, I provide end-to-end development services 
-            to bring your digital vision to life
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Comprehensive mobile development services tailored to bring your vision to life with cutting-edge technology
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="group bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                {/* Icon */}
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                    <IconComponent className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors duration-300" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="relative group"
+            >
+              <div className="glass-effect rounded-2xl p-8 h-full premium-shadow tech-card-hover">
+                <div className="relative mb-6">
+                  <div className={`absolute inset-0 bg-gradient-to-r ${service.color} rounded-full blur-lg opacity-30 group-hover:opacity-60 transition-opacity`}></div>
+                  <div className={`relative w-16 h-16 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center`}>
+                    <service.icon className="h-8 w-8 text-white" />
                   </div>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                      {feature}
-                    </li>
+                
+                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {service.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 text-xs font-medium bg-white/10 text-blue-300 rounded-full border border-blue-500/20"
+                    >
+                      {tech}
+                    </span>
                   ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-xl mb-6 opacity-90">
-              Let's discuss your requirements and create something amazing together
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Get Free Quote
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                Schedule Call
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
