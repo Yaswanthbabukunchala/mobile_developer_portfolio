@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection";
-import ServicesSection from "@/components/ServicesSection";
-import TechStackSection from "@/components/TechStackSection";
+import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 import Navigation from "@/components/Navigation";
 
 const Index = () => {
@@ -21,10 +21,10 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <HeroSection />
-      <StatsSection />
-      <ServicesSection />
-      <TechStackSection />
+      <AboutSection />
       <ProjectsSection />
+      <TestimonialsSection />
+      <ContactSection />
     </div>
   );
 };
