@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Play, Code, Smartphone, Globe } from "lucide-react";
+import { ArrowRight, Download, Play, Code, Smartphone, Globe, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
