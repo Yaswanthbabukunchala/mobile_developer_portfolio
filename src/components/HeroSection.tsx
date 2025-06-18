@@ -29,7 +29,7 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-heading"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -57,10 +57,10 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3 glow-shadow">
+              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3 glow-shadow font-heading">
                 View Projects <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-lg px-8 py-3">
+              <Button size="lg" variant="outline" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-lg px-8 py-3 font-heading">
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
@@ -88,7 +88,7 @@ const HeroSection = () => {
                       <tech.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
                   </div>
-                  <span className="mt-2 text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                  <span className="mt-2 text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors font-heading">
                     {tech.name}
                   </span>
                 </motion.div>
