@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
 import TechStackSection from "@/components/TechStackSection";
@@ -21,6 +22,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <HeroSection />
+      <AboutSection />
       <StatsSection />
       <ServicesSection />
       <TechStackSection />
