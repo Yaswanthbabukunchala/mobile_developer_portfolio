@@ -137,14 +137,14 @@ export const projects: Record<string, Project> = {
     "title": "Paris Travel Guide App",
     "subtitle": "Your smart companion for exploring the City of Light",
     "description": "Paris Travel Guide is an elegant and intuitive mobile and web app designed to help travelers explore the beauty, culture, and charm of Paris with ease. From iconic landmarks to hidden gems, the guide offers curated itineraries, real-time navigation, and personalized recommendations. The platform blends cultural insight with modern technology to provide a seamless travel experience tailored to every type of explorer.",
-    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&h=600",
-    "images": [
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=300&h=600"
-    ],
-    "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "image": "/project2/pic1.png",
+  "images": [
+    "/project2/pic1.png",
+    "/project2/pic2.jpeg",
+    "/project2/pic3.jpeg",
+    "/project2/pic4.jpeg"
+  ],
+    "video": "https://drive.google.com/file/d/12VxUtNx9QoEdqC8s6ureCxSAUUmvCRFK/preview",
     "category": "React Native",
     "tags": ["React Native", "Redux", "Google Maps", "Offline Support", "Cultural Data", "Audio Guides"],
     "github": "https://github.com/example/paris-travel-guide",
@@ -228,12 +228,13 @@ export const projects: Record<string, Project> = {
   "title": "Carsforsale.com Dealer",
   "subtitle": "All-in-one inventory and sales tool for auto dealers",
   "description": "Carsforsale.com Dealer is an intuitive dealership platform that offers end-to-end solutions for inventory management, digital advertising, and customer engagement. Built to empower dealers of all sizes, it combines user-friendly tools with real-time analytics to boost visibility, streamline operations, and close more sales efficiently.",
-  "image": "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&h=600",
+  "image": "/project3/pic3.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1563720225732-61145d3c6a32?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1580717366888-5c05e875ebc4?auto=format&fit=crop&w=300&h=600"
-  ],
+  "/project3/pic3.1.jpeg",
+  "/project3/pic3.2.jpeg",
+  "/project3/pic3.3.jpeg",
+  "/project3/pic3.4.jpeg"
+],
   "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
   "category": "Full Stack",
   "tags": ["React", "Node.js", "MongoDB", "Inventory Management", "CRM", "Analytics"],
@@ -318,11 +319,12 @@ export const projects: Record<string, Project> = {
   "title": "Smart Gym Workout",
   "subtitle": "Personalized fitness guidance at home or in the gym",
   "description": "Smart Gym Workout is a cross-platform fitness app that delivers tailored workout routines, live coaching feedback, and real-time performance tracking. Built for beginners and pros alike, the app adapts to each user’s goals, equipment, and progress, helping them stay consistent and motivated in achieving their fitness targets.",
-  "image": "https://images.unsplash.com/photo-1571019613577-0babf05b6416?auto=format&fit=crop&w=800&h=600",
+  "image": "/project4/pic4.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1571019613577-0babf05b6416?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1597451382211-bc65f8e8d8b1?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=300&h=600"
+    "/project4/pic4.1.jpeg",
+    "/project4/pic4.2.jpeg",
+    "/project4/pic4.3.jpeg",
+    "/project4/pic4.4.jpeg"
   ],
   "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
   "category": "Flutter",
@@ -408,11 +410,12 @@ export const projects: Record<string, Project> = {
   "title": "Spill App",
   "subtitle": "Anonymous social space to share, heal, and connect",
   "description": "Spill is a safe, expressive platform where users can share thoughts, secrets, and confessions anonymously. Built to promote mental relief and emotional support, the app fosters connection and empathy through a moderated and minimalist social network.",
-  "image": "https://images.unsplash.com/photo-1610632380983-03fd52d13f38?auto=format&fit=crop&w=800&h=600",
+  "image": "/project5/pic5.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1610632380983-03fd52d13f38?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1600488991213-3c5af6f39987?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1612178997879-0f89a761ef9b?auto=format&fit=crop&w=300&h=600"
+    "/project5/pic5.1.jpeg",
+    "/project5/pic5.2.jpeg",
+    "/project5/pic5.3.jpeg",
+    "/project5/pic5.4.jpeg"
   ],
   "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
   "category": "React Native",
@@ -498,10 +501,12 @@ export const projects: Record<string, Project> = {
   "title": "Money Manager – Expense Tracker",
   "subtitle": "Track spending, save smarter, and master your budget",
   "description": "Money Manager is a sleek and intuitive expense tracking app that empowers users to take control of their finances. With daily logging, budgeting tools, and detailed analytics, the app helps users build better money habits and achieve their financial goals.",
-  "image": "https://images.unsplash.com/photo-1588776814546-ec7e9037ba96?auto=format&fit=crop&w=800&h=600",
+  "image": "/project4/pic4.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1588776814546-ec7e9037ba96?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=300&h=600"
+    "/project4/pic4.1.jpeg",
+    "/project4/pic4.2.jpeg",
+    "/project4/pic4.3.jpeg",
+    "/project4/pic4.4.jpeg"
   ],
   "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
   "category": "Finance",
@@ -587,10 +592,12 @@ export const projects: Record<string, Project> = {
   "title": "WaterMinder – Water Reminder",
   "subtitle": "Stay hydrated, stay healthy with smart water tracking",
   "description": "WaterMinder is a health-focused hydration tracking app that reminds users to drink water based on personalized goals and real-time body metrics. With sleek visuals, reminders, and hydration analytics, the app promotes consistent water intake and better wellness habits.",
-  "image": "https://images.unsplash.com/photo-1572209170685-dc17b8a4e56f?auto=format&fit=crop&w=800&h=600",
+  "image": "/project5/pic5.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1572209170685-dc17b8a4e56f?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=300&h=600"
+    "/project5/pic5.1.jpeg",
+    "/project5/pic5.2.jpeg",
+    "/project5/pic5.3.jpeg",
+    "/project5/pic5.4.jpeg"
   ],
   "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
   "category": "Health & Wellness",

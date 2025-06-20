@@ -117,7 +117,7 @@ const HeroSection = () => {
               >
                 <div className="w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                   <img
-                    src="public/hero_1.png.jpeg"
+                    src="/hero_2.jpeg"
                     alt="Professional Profile"
                     className="w-full h-full object-cover"
                   />
