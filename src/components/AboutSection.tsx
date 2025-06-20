@@ -49,7 +49,7 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="glass-effect p-8 rounded-2xl h-full">
+            <div className="p-8 rounded-2xl h-full border border-white/10 bg-gradient-to-br from-[#0f172a] to-[#1e293b] shadow-xl shadow-black/10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                   <Code className="h-6 w-6 text-white" />

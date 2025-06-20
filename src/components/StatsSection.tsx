@@ -11,7 +11,7 @@ const StatsSection = () => {
   const stats = [
     { 
       icon: Smartphone, 
-      number: 150, 
+      number: 50, 
       label: "Apps Delivered", 
       suffix: "+",
       description: "Successfully launched mobile applications",
@@ -19,7 +19,7 @@ const StatsSection = () => {
     },
     { 
       icon: Users, 
-      number: 50, 
+      number: 30, 
       label: "Happy Clients", 
       suffix: "+",
       description: "Satisfied clients worldwide",
@@ -35,7 +35,7 @@ const StatsSection = () => {
     },
     { 
       icon: Clock, 
-      number: 5, 
+      number: 8, 
       label: "Years Experience", 
       suffix: "+",
       description: "Professional mobile development",

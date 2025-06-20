@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   const techIcons = [
     { icon: Code, name: "Flutter", delay: 0.2 },
-    { icon: Smartphone, name: "Kotlin", delay: 0.4 },
+    { icon: Smartphone, name: "React Native", delay: 0.4 },
     { icon: Globe, name: "Swift", delay: 0.6 },
+    { icon: Code, name: "Kotlin", delay: 0.2 },
   ];
 
   return (
@@ -46,8 +47,9 @@ const HeroSection = () => {
               transition={{ delay: 0.4 }}
             >
               Crafting exceptional mobile experiences with <span className="text-blue-500 font-semibold">Flutter</span>, 
-              <span className="text-green-500 font-semibold"> Kotlin</span>, and 
-              <span className="text-orange-500 font-semibold"> Swift</span>. 
+              <span className="text-green-500 font-semibold"> React Native</span>, and 
+              <span className="text-orange-500 font-semibold"> Swift</span>,
+              <span className="text-red-500 font-semibold"> Kotlin</span>. 
               Transforming ideas into powerful, scalable mobile applications.
             </motion.p>
 
@@ -109,13 +111,13 @@ const HeroSection = () => {
               
               {/* Profile photo container */}
               <motion.div
-                className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden glass-effect p-2"
+                className="relative w-80 h-80 md:w-96 md:h-96 rounded-lg overflow-hidden glass-effect p-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
+                <div className="w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="public/hero_1.png.jpeg"
                     alt="Professional Profile"
                     className="w-full h-full object-cover"
                   />

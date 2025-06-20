@@ -1,107 +1,39 @@
-
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github, Play, Calendar, Users, Star, Award, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getProjectById, Project } from "@/data/projects";
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeMedia, setActiveMedia] = useState("images");
+  const [project, setProject] = useState<Project | null>(null);
 
-  const project = {
-    id: 1,
-    title: "EcoDelivery - Sustainable Food Delivery",
-    subtitle: "Revolutionizing food delivery with sustainability at its core",
-    description: "EcoDelivery is a comprehensive food delivery platform that prioritizes environmental sustainability while providing exceptional user experience. The app features carbon footprint tracking, eco-friendly restaurant partnerships, and sustainable packaging options.",
-    image: "/placeholder.svg?height=600&width=800",
-    images: [
-      "/placeholder.svg?height=600&width=300",
-      "/placeholder.svg?height=600&width=300", 
-      "/placeholder.svg?height=600&width=300",
-      "/placeholder.svg?height=600&width=300",
-      "/placeholder.svg?height=600&width=300"
-    ],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    category: "Flutter",
-    tags: ["Flutter", "Firebase", "Google Maps", "Payment Gateway", "Push Notifications", "Analytics", "ML Integration", "Sustainability", "Real-time Tracking"],
-    github: "https://github.com/example/ecodelivery",
-    demo: "https://ecodelivery-demo.com",
-    stats: {
-      downloads: "50K+",
-      rating: 4.8,
-      users: "25K+",
-      reviews: "2.1K"
-    },
-    timeline: {
-      duration: "6 months",
-      team: "4 developers",
-      role: "Lead Developer & Architect",
-      client: "GreenTech Ventures"
-    },
-    features: [
-      {
-        title: "Carbon Footprint Tracking",
-        description: "Real-time calculation and display of environmental impact for each order, encouraging users to make eco-friendly choices."
-      },
-      {
-        title: "Sustainable Restaurant Network",
-        description: "Curated network of restaurants committed to sustainable practices, locally sourced ingredients, and minimal packaging."
-      },
-      {
-        title: "Smart Route Optimization",
-        description: "AI-powered delivery route optimization to minimize carbon emissions and reduce delivery times."
-      },
-      {
-        title: "Eco-Rewards System",
-        description: "Gamified reward system that incentivizes sustainable choices and builds user engagement."
-      },
-      {
-        title: "Real-time Order Tracking",
-        description: "Live tracking with ETA predictions and delivery partner communication features."
-      },
-      {
-        title: "Sustainable Packaging Options",
-        description: "Users can choose eco-friendly packaging options and track their environmental impact over time."
+  useEffect(() => {
+    if (id) {
+      const projectData = getProjectById(id);
+      if (projectData) {
+        setProject(projectData);
+      } else {
+        // Redirect to 404 or home if project not found
+        navigate('/');
       }
-    ],
-    challenges: [
-      {
-        title: "Complex Carbon Calculation",
-        description: "Implementing accurate real-time carbon footprint calculations required extensive research and integration with multiple data sources including transportation methods, distance calculations, and restaurant sustainability scores."
-      },
-      {
-        title: "Real-time Delivery Tracking",
-        description: "Building a robust real-time tracking system that handles high concurrent users while maintaining accuracy and performance across different network conditions."
-      },
-      {
-        title: "Payment Gateway Integration",
-        description: "Integrating multiple payment gateways while ensuring PCI compliance and handling various edge cases for different payment methods and currencies."
-      },
-      {
-        title: "Offline Functionality",
-        description: "Ensuring the app works seamlessly in areas with poor connectivity, implementing smart caching strategies and offline-first architecture."
-      },
-      {
-        title: "Scalable Architecture",
-        description: "Designing a microservices architecture that can handle rapid user growth while maintaining performance and reliability."
-      }
-    ],
-    techDetails: {
-      frontend: ["Flutter", "Dart", "Provider State Management", "Custom Animations"],
-      backend: ["Firebase Functions", "Node.js", "Express", "MongoDB"],
-      apis: ["Google Maps API", "Stripe API", "Twilio SMS", "SendGrid"],
-      tools: ["VS Code", "Git", "Firebase Console", "Postman", "Figma"]
-    },
-    results: [
-      "50K+ downloads within 6 months",
-      "4.8/5 average rating with 2.1K reviews",
-      "25% reduction in average delivery carbon footprint",
-      "300+ partner restaurants onboarded",
-      "Featured in Tech Crunch and Product Hunt"
-    ]
-  };
+    }
+  }, [id, navigate]);
+
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-white mb-4">Loading...</h1>
+          <p className="text-gray-400">Please wait while we load the project details.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -118,13 +50,17 @@ const ProjectDetail = () => {
               <span>Back to Portfolio</span>
             </Link>
             <div className="flex space-x-4">
-              <Button variant="outline" size="sm" className="border-blue-400 text-blue-400">
-                <Github className="h-4 w-4 mr-2" />
-                Code
+              <Button variant="outline" size="sm" className="border-blue-400 text-blue-400" asChild>
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4 mr-2" />
+                  Code
+                </a>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600">
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Live Demo
+              <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600" asChild>
+                <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Live Demo
+                </a>
               </Button>
             </div>
           </div>
@@ -200,7 +136,7 @@ const ProjectDetail = () => {
                     >
                       <img
                         src={image}
-                        alt={`Screenshot ${index + 1}`}
+                        alt={`${project.title} Screenshot ${index + 1}`}
                         className="w-64 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer"
                       />
                     </motion.div>
@@ -213,7 +149,7 @@ const ProjectDetail = () => {
                   src={project.video}
                   className="w-full h-full"
                   allowFullScreen
-                  title="Project Demo Video"
+                  title={`${project.title} Demo Video`}
                 />
               </div>
             )}

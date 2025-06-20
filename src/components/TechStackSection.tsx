@@ -36,6 +36,14 @@ const TechStackSection = () => {
       ]
     },
     {
+      title: "Analytics & Monitoring",
+      technologies: [
+        { name: "Google Analytics	", level: 95, color: "from-gray-400 to-gray-600" },
+        { name: "Firebase Crashlytics	", level: 80, color: "from-blue-500 to-blue-700" },
+        { name: "Sentry", level: 85, color: "from-purple-400 to-purple-600" }
+      ]
+    },
+    {
       title: "Tools & Others",
       technologies: [
         { name: "Git", level: 95, color: "from-gray-400 to-gray-600" },
