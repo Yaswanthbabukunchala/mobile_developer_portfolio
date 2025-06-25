@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Github, Play, Calendar, Users, Star, Award, Zap, Shield } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Play, Calendar, Users, Star, Award, Zap, Shield, Smartphone, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { getProjectById, Project } from "@/data/projects";
 
 const ProjectDetail = () => {
@@ -23,6 +24,17 @@ const ProjectDetail = () => {
       }
     }
   }, [id, navigate]);
+
+  const handleBackToPortfolio = () => {
+    navigate('/', { replace: true });
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   if (!project) {
     return (
@@ -45,10 +57,13 @@ const ProjectDetail = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors">
+            <button
+              onClick={handleBackToPortfolio}
+              className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
+            >
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Portfolio</span>
-            </Link>
+            </button>
             <div className="flex space-x-4">
               <Button variant="outline" size="sm" className="border-blue-400 text-blue-400" asChild>
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -59,7 +74,7 @@ const ProjectDetail = () => {
               <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600" asChild>
                 <a href={project.demo} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  Live Demo
+                  App Link
                 </a>
               </Button>
             </div>
@@ -123,38 +138,53 @@ const ProjectDetail = () => {
             </div>
 
             {/* Media Content */}
-            {activeMedia === "images" ? (
-              <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex space-x-4 pb-4" style={{ width: 'max-content' }}>
-                  {project.images.map((image, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex-shrink-0"
-                    >
-                      <img
-                        src={image}
-                        alt={`${project.title} Screenshot ${index + 1}`}
-                        className="w-64 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform cursor-pointer"
-                      />
-                    </motion.div>
+    {activeMedia === "images" ? (
+      <div className="relative">
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {Array.from({ length: Math.ceil(project.images.length / 3) }).map((_, slideIndex) => (
+              <CarouselItem key={slideIndex}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {project.images
+                    .slice(slideIndex * 3, slideIndex * 3 + 3)
+                    .map((image, imageIndex) => (
+                      <motion.div
+                        key={slideIndex * 3 + imageIndex}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: imageIndex * 0.1 }}
+                        className="overflow-hidden rounded-lg"
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} Screenshot ${slideIndex * 3 + imageIndex + 1}`}
+                          className="w-full h-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                        />
+                      </motion.div>
                   ))}
                 </div>
-              </div>
-            ) : (
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  src={project.video}
-                  className="w-full h-full"
-                  allowFullScreen
-                  title={`${project.title} Demo Video`}
-                />
-              </div>
-            )}
-          </div>
-        </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
+      </div>
+    ) : (
+      <div className="aspect-video rounded-lg overflow-hidden">
+        <iframe
+          src={project.video}
+          className="w-full h-full"
+          allowFullScreen
+          title={`${project.title} Demo Video`}
+        />
+      </div>
+    )}
+  </div>
+</motion.div>
 
         {/* Project Stats */}
         <motion.div
@@ -237,10 +267,10 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          <div>
+          <div className="space-y-6">
             <div className="glass-effect rounded-2xl p-6 premium-shadow">
               <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-6">
                 <div>
                   <h4 className="text-blue-400 font-medium mb-2">Frontend</h4>
                   <div className="flex flex-wrap gap-2">
@@ -270,6 +300,35 @@ const ProjectDetail = () => {
                       </Badge>
                     ))}
                   </div>
+                </div>
+              </div>
+
+              {/* App Links Boxes */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="glass-effect rounded-xl p-4 premium-shadow">
+                  <h4 className="text-sm font-semibold text-white mb-3 text-center">Play Store</h4>
+                  <Button 
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-xs py-2" 
+                    asChild
+                  >
+                    <a href={project.playStoreLink} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      Get App
+                    </a>
+                  </Button>
+                </div>
+                
+                <div className="glass-effect rounded-xl p-4 premium-shadow">
+                  <h4 className="text-sm font-semibold text-white mb-3 text-center">App Store</h4>
+                  <Button 
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-xs py-2" 
+                    asChild
+                  >
+                    <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      Get App
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -355,11 +414,14 @@ const ProjectDetail = () => {
                 <Calendar className="mr-2 h-5 w-5" />
                 Schedule Consultation
               </Button>
-              <Link to="/">
-                <Button size="lg" variant="outline" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black">
-                  View More Projects
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
+                onClick={handleBackToPortfolio}
+              >
+                View More Projects
+              </Button>
             </div>
           </div>
         </motion.div>

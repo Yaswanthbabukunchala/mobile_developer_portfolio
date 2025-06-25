@@ -5,12 +5,12 @@ import { Smartphone, Code, Globe, Zap, Shield, Headphones } from "lucide-react";
 const ServicesSection = () => {
   const services = [
     {
-      icon: Smartphone,
-      title: "Native iOS Development",
-      description: "Expert Swift development for premium iOS applications with native performance and seamless user experience.",
-      technologies: ["Swift", "UIKit", "SwiftUI", "Core Data", "ARKit"],
-      color: "from-blue-500 to-blue-600"
-    },
+  icon: Smartphone,
+  title: "Flutter App Development",
+  description: "Cross-platform mobile apps built with Flutter for stunning UI, fast performance, and native-like experience on both iOS & Android.",
+  technologies: ["Flutter", "Dart", "Firebase", "Bloc", "GetX"],
+  color: "from-purple-500 to-indigo-600"
+},
     {
       icon: Code,
       title: "Native Android Development", 
@@ -26,12 +26,12 @@ const ServicesSection = () => {
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: Zap,
-      title: "App Performance Optimization",
-      description: "Comprehensive performance analysis and optimization to ensure your apps run smoothly and efficiently.",
-      technologies: ["Profiling", "Memory Management", "Battery Optimization", "Network Optimization"],
-      color: "from-yellow-500 to-yellow-600"
-    },
+   icon: Smartphone,
+      title: "Native iOS Development",
+      description: "Expert Swift development for premium iOS applications with native performance and seamless user experience.",
+      technologies: ["Swift", "UIKit", "SwiftUI", "Core Data", "ARKit"],
+      color: "from-blue-500 to-blue-600" 
+},
     {
       icon: Shield,
       title: "Security & Authentication",

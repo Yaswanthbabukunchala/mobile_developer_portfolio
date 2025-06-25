@@ -10,6 +10,8 @@ export interface Project {
   tags: string[];
   github: string;
   demo: string;
+  playStoreLink?: string;
+  appStoreLink?: string;
   stats: {
     downloads: string;
     rating: number;
@@ -42,22 +44,26 @@ export interface Project {
 export const projects: Record<string, Project> = {
   "1": {
     id: "1",
-    title: "AutoTempest - Car Search",
+    title: "Fixail – Home Services App",
     subtitle: "Revolutionizing food delivery with sustainability at its core",
-    description: "AutoTempest is a powerful car search aggregator that streamlines the car buying process by collecting listings from multiple major websites into a single, user-friendly platform. Designed for efficiency and transparency, the platform empowers users to compare prices, filter preferences, and find the best deals on new and used vehicles across various sources with minimal effort.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&h=600",
+    description: "Fixail – Home Services App is an all-in-one platform that connects users with trusted professionals for various household needs including plumbing, electrical, cleaning, appliance repair, and more. Built for speed and simplicity, Fixail ensures quick bookings, transparent pricing, and real-time service tracking — all in a clean, modern UI.",
+    image: "/project1/pic1.1.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=300&h=600",
-      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=300&h=600"
+      "/project1/pic1.1.jpeg",
+      "/project1/pic1.2.jpeg",
+      "/project1/pic1.3.jpeg",
+      "/project1/pic1.4.jpeg",
+      "/project1/pic1.5.jpeg",
+      "/project1/pic1.6.jpeg",
+      "/project1/pic1.7.jpeg"
     ],
-    video: "https://drive.google.com/file/d/13Qir9IyTxmWjLpGdxtt1ebIhrGMOnqL2/preview",
+    video: "https://drive.google.com/file/d/1FOIMKbavpgQUeqhTTXsXvJtatFKZrLEU/preview",
     category: "Flutter",
     tags: ["Flutter", "Firebase", "Google Maps", "Payment Gateway", "Push Notifications", "Analytics", "ML Integration", "Sustainability", "Real-time Tracking"],
     github: "https://github.com/example/ecodelivery",
     demo: "https://ecodelivery-demo.com",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.ulmon.android.playparis&hl=en_IN",
+    appStoreLink: "https://apps.apple.com/app/ecodelivery/id123456789",
     stats: {
       downloads: "50K+",
       rating: 4.8,
@@ -71,53 +77,54 @@ export const projects: Record<string, Project> = {
       client: "GreenTech Ventures"
     },
     features: [
-      {
-        title: "Unified Car Listings",
-        description: "Aggregates listings from top car marketplaces like Craigslist, eBay Motors, Carvana, and more into a single search interface for easy comparison."
-      },
-      {
-        title: "Advanced Filtering System",
-        description: "Extensive filters including make, model, year, price range, mileage, location, transmission, and fuel type to refine search results precisely."
-      },
-      {
-        title: "Price History & Market Insights",
-        description: "Provides pricing trends, vehicle history reports, and estimated market values to help users make informed purchase decisions."
-      },
-      {
-        title: "Saved Searches & Alerts",
-        description: "Allows users to save preferred searches and receive instant alerts when matching vehicles are listed, increasing the chances of finding the right car quickly."
-      },
-      {
-        title: "Dealer & Private Seller Integration",
-        description: "Supports listings from both private sellers and dealers, offering a comprehensive overview of available inventory."
-      },
-      {
-        title: "Mobile-Friendly Interface",
-        description: "Optimized for mobile devices with a responsive UI, ensuring a seamless experience across smartphones, tablets, and desktops."
-      }
-    ],
-    challenges: [
-      {
-        title: "Data Aggregation Consistency",
-        description: "Implementing accurate real-time carbon footprint calculations required extensive research and integration with multiple data sources including transportation methods, distance calculations, and restaurant sustainability scores."
-      },
-      {
-        title: "Duplicate Listing Detection",
-        description: "Eliminating duplicate vehicle listings across multiple sources was addressed through hash-based matching, image recognition, and VIN cross-referencing."
-      },
-      {
-        title: "Scalable Search Performance",
-        description: "Handling large volumes of real-time search queries across millions of listings demanded a high-performance backend with indexed search, caching layers, and load-balanced microservices."
-      },
-      {
-        title: "Price Evaluation Accuracy",
-        description: "Ensuring accurate pricing trends and history required integration with third-party market analysis tools and dynamic adjustment algorithms based on regional market conditions."
-      },
-      {
-        title: "User Privacy & Security",
-        description: "Implementing strict data protection protocols and secure communication channels helped build user trust and ensured compliance with data privacy regulations."
-      }
-    ],
+  {
+    title: "Instant Service Booking",
+    description: "Users can search, filter, and instantly book trusted professionals for a wide range of home services such as plumbing, cleaning, electrical, and appliance repair."
+  },
+  {
+    title: "Live Job Status Tracking",
+    description: "Track technician arrival, job progress, and communicate in real time — all from within the app for a seamless experience."
+  },
+  {
+    title: "Verified Professionals",
+    description: "All service providers undergo background checks, verification processes, and are rated by past customers to ensure service quality and safety."
+  },
+  {
+    title: "Digital Invoicing & Secure Payments",
+    description: "Users receive real-time invoices and can pay using secure gateways with support for cards, UPI, and mobile wallets."
+  },
+  {
+    title: "Rating & Review System",
+    description: "After every job, users can leave reviews and ratings to help others choose the best providers and maintain quality across the platform."
+  },
+  {
+    title: "Multi-Service Support",
+    description: "Fixail supports dozens of service categories including AC repair, pest control, carpentry, and more — all under one app."
+  }
+],
+challenges: [
+  {
+    title: "Real-Time Availability Matching",
+    description: "Engineered a scheduling system that dynamically allocates technicians based on service area, availability, and job priority."
+  },
+  {
+    title: "Service Area Optimization",
+    description: "Used geo-fencing and GPS-based logic to only display service providers within a viable travel distance to the user."
+  },
+  {
+    title: "Trust & Safety Concerns",
+    description: "Added provider ID verification, profile transparency, customer support chat, and live status updates to ensure user trust."
+  },
+  {
+    title: "UI Complexity with Many Services",
+    description: "Implemented collapsible service menus, icons, and categorized flows to maintain a clean, user-friendly interface."
+  },
+  {
+    title: "Offline Job Updates",
+    description: "Enabled technicians to mark progress and completion offline, with sync triggered once internet becomes available."
+  }
+],
+
     techDetails: {
       frontend: ["Flutter", "Dart", "Provider State Management", "Custom Animations"],
       backend: ["Firebase Functions", "Node.js", "Express", "MongoDB"],
@@ -142,9 +149,11 @@ export const projects: Record<string, Project> = {
     "/project2/pic1.png",
     "/project2/pic2.jpeg",
     "/project2/pic3.jpeg",
-    "/project2/pic4.jpeg"
+    "/project2/pic4.jpeg",
+    "/project2/pic5.jpeg",
+    "/project2/pic6.jpeg"
   ],
-    "video": "https://drive.google.com/file/d/12VxUtNx9QoEdqC8s6ureCxSAUUmvCRFK/preview",
+    "video": "https://drive.google.com/file/d/1mevHJUF6G3-HXbRgjta9Ms5oQdK1q38l/preview",
     "category": "React Native",
     "tags": ["React Native", "Redux", "Google Maps", "Offline Support", "Cultural Data", "Audio Guides"],
     "github": "https://github.com/example/paris-travel-guide",
@@ -319,12 +328,12 @@ export const projects: Record<string, Project> = {
   "title": "Smart Gym Workout",
   "subtitle": "Personalized fitness guidance at home or in the gym",
   "description": "Smart Gym Workout is a cross-platform fitness app that delivers tailored workout routines, live coaching feedback, and real-time performance tracking. Built for beginners and pros alike, the app adapts to each user’s goals, equipment, and progress, helping them stay consistent and motivated in achieving their fitness targets.",
-  "image": "/project4/pic4.1.jpeg",
+  "image": "/project3/pic3.1.jpeg",
   "images": [
-    "/project4/pic4.1.jpeg",
-    "/project4/pic4.2.jpeg",
-    "/project4/pic4.3.jpeg",
-    "/project4/pic4.4.jpeg"
+    "/project3/pic3.1.jpeg",
+    "/project3/pic3.2.jpeg",
+    "/project3/pic3.3.jpeg",
+    "/project3/pic3.4.jpeg"
   ],
   "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
   "category": "Flutter",
@@ -407,9 +416,9 @@ export const projects: Record<string, Project> = {
   },
   "5": {
   "id": "5",
-  "title": "Spill App",
-  "subtitle": "Anonymous social space to share, heal, and connect",
-  "description": "Spill is a safe, expressive platform where users can share thoughts, secrets, and confessions anonymously. Built to promote mental relief and emotional support, the app fosters connection and empathy through a moderated and minimalist social network.",
+  "title": "Planner Pro",
+  "subtitle": "combines daily task management, calendar integration, and note-taking.",
+  "description": "Planner Pro is a feature-rich productivity and scheduling app that combines daily task management, calendar integration, and note-taking into one seamless experience. Designed for busy professionals and students alike, it helps users organize their day, set priorities, and stay on top of personal and professional goals with clarity and focus.",
   "image": "/project5/pic5.1.jpeg",
   "images": [
     "/project5/pic5.1.jpeg",
@@ -435,52 +444,52 @@ export const projects: Record<string, Project> = {
     "client": "Emote Labs"
   },
   "features": [
-    {
-      "title": "Anonymous Posting",
-      "description": "Users can share their emotions and secrets without revealing their identity, creating a safe space for honest expression."
-    },
-    {
-      "title": "Mood Tags & Filters",
-      "description": "Posts can be tagged with moods like 'confession', 'love', 'anxiety', allowing others to discover relatable experiences."
-    },
-    {
-      "title": "Supportive Reactions",
-      "description": "Encourage empathy with positive reaction options and comment-based support systems."
-    },
-    {
-      "title": "Scheduled & Drafted Posts",
-      "description": "Write and schedule posts for future sharing or save them privately to revisit later."
-    },
-    {
-      "title": "Community Guidelines Enforcement",
-      "description": "Built-in reporting and moderation features, supported by AI flagging to maintain a respectful space."
-    },
-    {
-      "title": "Dark Mode & Minimal UI",
-      "description": "Distraction-free interface with soft visuals for late-night sharing and reading."
-    }
-  ],
-  "challenges": [
-    {
-      "title": "Moderation of Anonymous Content",
-      "description": "Integrated AI-based sentiment analysis and toxicity filters to automatically flag harmful or inappropriate posts."
-    },
-    {
-      "title": "Balancing Anonymity with Safety",
-      "description": "Devised a system of invisible IDs for internal moderation while protecting user privacy."
-    },
-    {
-      "title": "User Retention Without Identity",
-      "description": "Gamified badges and post streaks were introduced to keep users returning and building safe engagement habits."
-    },
-    {
-      "title": "High Peak-Time Loads",
-      "description": "Used Firebase Firestore and scalable cloud functions to handle surges in activity during late-night usage."
-    },
-    {
-      "title": "Toxic Comment Prevention",
-      "description": "Real-time filters and soft warnings were added to prevent heated arguments and maintain emotional well-being."
-    }
+  {
+    "title": "Daily & Weekly Planning",
+    "description": "Organize your schedule with flexible day and week views, helping users break down their goals into actionable steps."
+  },
+  {
+    "title": "Task Management & Reminders",
+    "description": "Add tasks with deadlines, priority levels, and recurring settings — complete with reminders and notifications."
+  },
+  {
+    "title": "Calendar Sync Integration",
+    "description": "Two-way sync with Google, Apple, and Outlook calendars ensures your appointments and tasks are always aligned."
+  },
+  {
+    "title": "Notes with Attachments",
+    "description": "Attach notes, documents, and images to any task or event for improved organization and clarity."
+  },
+  {
+    "title": "Focus Mode",
+    "description": "Enter a distraction-free zone with Pomodoro-style timers and time-blocking tools to enhance focus."
+  },
+  {
+    "title": "Offline Planning Support",
+    "description": "Plan and manage your tasks offline with seamless syncing once internet is restored."
+  }
+],
+"challenges": [
+  {
+    "title": "Complex Recurring Task Logic",
+    "description": "Built a robust system to support nested and flexible recurrence patterns (e.g., every second Monday of the month)."
+  },
+  {
+    "title": "Reliable Calendar Sync",
+    "description": "Engineered conflict resolution logic and delta-sync methods to avoid duplicate or missing updates across devices."
+  },
+  {
+    "title": "UI Clarity for Power Users",
+    "description": "Added customizable layouts (grid, timeline, compact) to cater to different user preferences and reduce cognitive load."
+  },
+  {
+    "title": "User Onboarding & Adoption",
+    "description": "Designed a minimal, step-by-step onboarding flow to help new users quickly understand the core features."
+  },
+  {
+    "title": "Data Privacy & Backup",
+    "description": "Encrypted all user data at rest and in transit, and introduced backup and restore options with cloud syncing."
+  }
   ],
   "techDetails": {
     "frontend": ["React Native", "Context API", "Lottie Animations"],
@@ -508,11 +517,13 @@ export const projects: Record<string, Project> = {
     "/project4/pic4.3.jpeg",
     "/project4/pic4.4.jpeg"
   ],
-  "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+  "video": "https://drive.google.com/file/d/1pMDv80cC-dvrCbRZkDx1rEi8RHeALNK1/preview",
   "category": "Finance",
   "tags": ["Flutter", "Finance", "Budget Tracker", "Data Visualization", "SQLite"],
   "github": "https://github.com/example/money-manager",
   "demo": "https://money-manager-demo.com",
+  playStoreLink: "play.google.com/store/apps/details?id=com.realbyteapps.moneymanagerfree ",
+  appStoreLink: "apps.apple.com/us/app/money-manager-expense-budget/id560481810",
   "stats": {
     "downloads": "250K+",
     "rating": 4.8,
@@ -599,7 +610,7 @@ export const projects: Record<string, Project> = {
     "/project5/pic5.3.jpeg",
     "/project5/pic5.4.jpeg"
   ],
-  "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+  "video": "https://drive.google.com/file/d/1xwa6Vm-rP6s1CCPcrf9VaYzLPCoF5Qem/preview",
   "category": "Health & Wellness",
   "tags": ["React Native", "Health Tracker", "Reminders", "Notifications", "Wearables"],
   "github": "https://github.com/example/waterminder",
@@ -683,21 +694,27 @@ export const projects: Record<string, Project> = {
   "title": "Pedometer & Step Counter – Leap Fitness",
   "subtitle": "Track your steps, stay fit, and move smarter",
   "description": "Leap Fitness's Pedometer app offers accurate, battery-friendly step tracking without requiring GPS. Designed to help users stay active, it combines simplicity with powerful activity analytics to encourage daily movement and health tracking.",
-  "image": "https://images.unsplash.com/photo-1599058917212-d750089bcaa6?auto=format&fit=crop&w=800&h=600",
+  "image": "/project8/pic8.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1599058917212-d750089bcaa6?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1565070210840-bf39f0100045?auto=format&fit=crop&w=300&h=600"
+    "/project8/pic8.1.jpeg",
+    "/project8/pic8.2.jpeg",
+    "/project8/pic8.3.jpeg",
+    "/project8/pic8.4.jpeg",
+    "/project8/pic8.5.jpeg",
+    "/project8/pic8.6.jpeg",
+    "/project8/pic8.7.jpeg",
+    "/project8/pic8.8.jpeg"
   ],
-  "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
-  "category": "Fitness",
-  "tags": ["Android", "Step Counter", "HealthKit", "Low Battery Usage", "Charts"],
-  "github": "https://github.com/example/pedometer-app",
-  "demo": "https://pedometer-demo.com",
+  "video": "https://drive.google.com/file/d/15fxyOxzNlr6DAf2ZwGoXkWSoDx25jsc7/preview",
+  "category": "Health & Wellness",
+  "tags": ["React Native", "Health Tracker", "Reminders", "Notifications", "Wearables"],
+  "github": "https://github.com/example/waterminder",
+  "demo": "https://waterminder-demo.com",
   "stats": {
-    "downloads": "5M+",
-    "rating": 4.7,
-    "users": "3.2M+",
-    "reviews": "48K"
+    "downloads": "300K+",
+    "rating": 4.6,
+    "users": "210K+",
+    "reviews": "7.9K"
   },
   "timeline": {
     "duration": "5 months",
@@ -772,12 +789,16 @@ export const projects: Record<string, Project> = {
   "title": "Deepstash – Bite-Sized Knowledge",
   "subtitle": "Discover insights that grow your mind in 2 minutes a day",
   "description": "Deepstash is a content discovery platform that delivers short, digestible knowledge cards on productivity, psychology, leadership, and more. Designed for personal growth and habit-building, it enables users to explore curated ideas in a focused, distraction-free format.",
-  "image": "https://images.unsplash.com/photo-1515165562835-cfaefb8d1852?auto=format&fit=crop&w=800&h=600",
+  "image": "/project9/pic9.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1515165562835-cfaefb8d1852?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=300&h=600"
+    "/project9/pic9.1.jpeg",
+    "/project9/pic9.2.jpeg",
+    "/project9/pic9.3.jpeg",
+    "/project9/pic9.4.jpeg",
+    "/project9/pic9.5.jpeg",
+    "/project9/pic9.6.jpeg"
   ],
-  "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+  "video": "https://drive.google.com/file/d/1MsF3-x9Hdiof7bLgGd-lIe28aDidawY7/preview",
   "category": "Education",
   "tags": ["React Native", "Content Curation", "Bookmarking", "User Profiles", "Push Notifications"],
   "github": "https://github.com/example/deepstash-clone",
@@ -861,12 +882,17 @@ export const projects: Record<string, Project> = {
   "title": "1 Second Everyday – Video Diary",
   "subtitle": "Capture your life, one second at a time",
   "description": "1 Second Everyday is a life-logging video diary app that empowers users to document daily moments through one-second clips. By compiling these moments into engaging visual stories, it helps people reflect, appreciate, and preserve memories effortlessly.",
-  "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&h=600",
+  "image": "/project10/pic10.1.jpeg",
   "images": [
-    "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&h=600",
-    "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=300&h=600"
+    "/project10/pic10.1.jpeg",
+    "/project10/pic10.2.jpeg",
+    "/project10/pic10.3.jpeg",
+    "/project10/pic10.4.jpeg",
+    "/project10/pic10.5.jpeg",
+    "/project10/pic10.6.jpeg",
+    "/project10/pic10.7.jpeg"
   ],
-  "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+  "video": "https://drive.google.com/file/d/1bjTJmRzdgYKxehReMk_BQjTGf-GJsLbl/preview",
   "category": "Lifestyle",
   "tags": ["iOS", "Video Editing", "Cloud Sync", "Memory Journal", "Notifications"],
   "github": "https://github.com/example/1se-video-diary",
@@ -931,6 +957,192 @@ export const projects: Record<string, Project> = {
       "description": "Enabled user-defined privacy levels and encryption for shared video exports."
     }
   ],
+  "techDetails": {
+    "frontend": ["Swift", "SwiftUI", "AVFoundation"],
+    "backend": ["Firebase", "iCloud"],
+    "apis": ["Push Notification API", "iOS Files API", "AVKit"],
+    "tools": ["Xcode", "TestFlight", "Figma", "Firebase Console"]
+  },
+  "results": [
+    "2M+ downloads globally",
+    "4.9/5 average rating with 35K reviews",
+    "Chosen as App of the Day by Apple Store",
+    "User average: 11 months of continuous usage",
+    "Top app for daily journaling in 20+ countries"
+  ]
+},
+"11": {
+  "id": "11",
+  "title": "Kraven – Food Delivery App",
+  "subtitle": "Smart, real-time food delivery with custom orders",
+  "description": "Kraven is a fast, intuitive food delivery platform connecting users with local restaurants. It offers real-time tracking, customizable meals, and a sleek user interface for seamless ordering and delivery experiences.",
+  "image": "/project11/pic11.1.jpeg",
+  "images": [
+    "/project11/pic11.1.jpeg",
+    "/project11/pic11.2.jpeg",
+    "/project11/pic11.3.jpeg",
+    "/project11/pic11.4.jpeg",
+    "/project11/pic11.5.jpeg"
+  ],
+  "video": "https://drive.google.com/file/d/1mevHJUF6G3-HXbRgjta9Ms5oQdK1q38l/preview",
+  "category": "Food Delivery",
+  "tags": ["Flutter", "Firebase", "Stripe", "Maps API", "Push Notifications"],
+  "github": "https://github.com/example/kraven-app",
+  "demo": "https://kraven-demo.com",
+  "stats": {
+    "downloads": "1M+",
+    "rating": 4.7,
+    "users": "600K+",
+    "reviews": "22K"
+  },
+  "timeline": {
+    "duration": "8 months",
+    "team": "5 developers",
+    "role": "Flutter Developer",
+    "client": "Kraven Tech Labs"
+  },
+  "features": [
+    {
+      "title": "Smart Restaurant Discovery",
+      "description": "Browse restaurants by cuisine, ratings, distance, and delivery speed."
+    },
+    {
+      "title": "Real-Time Order Tracking",
+      "description": "Track orders from kitchen to doorstep with live location updates and ETAs."
+    },
+    {
+      "title": "Customizable Orders",
+      "description": "Modify meals with ingredient toggles, portion sizes, and special instructions."
+    },
+    {
+      "title": "Scheduled Deliveries",
+      "description": "Pre-order food for future time slots with built-in reminders."
+    },
+    {
+      "title": "Multi-Address Support",
+      "description": "Save multiple delivery addresses with labels for home, office, etc."
+    },
+    {
+      "title": "Dark Mode & Smooth UX",
+      "description": "Modern UI with smooth animations, gestures, and light/dark themes."
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Order Routing Accuracy",
+      "description": "Implemented geospatial APIs for optimal delivery paths and ETAs."
+    },
+    {
+      "title": "Live Tracking with High Concurrency",
+      "description": "Used WebSockets and load balancing to ensure real-time accuracy at scale."
+    },
+    {
+      "title": "Custom Modifier System",
+      "description": "Built a dynamic engine to support restaurants’ modifier-based menus."
+    },
+    {
+      "title": "Payment Gateway Flexibility",
+      "description": "Integrated Stripe, Razorpay, and fallback flows for failed transactions."
+    },
+    {
+      "title": "Restaurant Onboarding Tools",
+      "description": "Developed dashboards for partner menu sync, analytics, and performance."
+    }
+  ],
+  "techDetails": {
+    "frontend": ["Flutter"],
+    "backend": ["Firebase", "Node.js"],
+    "apis": ["Google Maps API", "Push Notification API", "Stripe API"],
+    "tools": ["VS Code", "Figma", "Firebase Console", "Postman"]
+  },
+  "results": [
+    "1M+ downloads across platforms",
+    "4.7 average rating from 22K reviews",
+    "Served over 600K+ users in 9 months",
+    "Partnered with 500+ local restaurants",
+    "Recognized as Top Emerging Food App in 2024"
+  ]
+},
+"12": {
+  "id": "12",
+  "title": "Rent Home – Property Rental App",
+  "subtitle": "Capture your life, one second at a time",
+  "description": "Rent Home is a user-friendly property rental platform that connects tenants with landlords through real-time listings, smart filters, and secure communication. Designed for both short-term and long-term rentals, the app simplifies the search, inquiry, and lease process, making home renting faster, smarter, and more transparent.",
+  "image": "/project10/pic10.1.jpeg",
+  "images": [
+    "/project10/pic10.1.jpeg",
+    "/project10/pic10.2.jpeg",
+    "/project10/pic10.3.jpeg",
+    "/project10/pic10.4.jpeg",
+    "/project10/pic10.5.jpeg",
+    "/project10/pic10.6.jpeg",
+    "/project10/pic10.7.jpeg"
+  ],
+  "video": "https://drive.google.com/file/d/1bjTJmRzdgYKxehReMk_BQjTGf-GJsLbl/preview",
+  "category": "Lifestyle",
+  "tags": ["iOS", "Video Editing", "Cloud Sync", "Memory Journal", "Notifications"],
+  "github": "https://github.com/example/1se-video-diary",
+  "demo": "https://1se-demo.com",
+  "stats": {
+    "downloads": "2M+",
+    "rating": 4.9,
+    "users": "1.5M+",
+    "reviews": "35K"
+  },
+  "timeline": {
+    "duration": "6 months",
+    "team": "4 developers",
+    "role": "iOS Developer",
+    "client": "Everyday Moments Inc."
+  },
+  "features": [
+  {
+    "title": "Smart Property Search",
+    "description": "Browse rental listings with filters for location, budget, amenities, availability, and more."
+  },
+  {
+    "title": "Interactive Map View",
+    "description": "View properties geographically with map clustering and distance-based sorting."
+  },
+  {
+    "title": "In-App Chat & Inquiry",
+    "description": "Connect directly with landlords through secure chat with quick-reply templates."
+  },
+  {
+    "title": "Saved Listings & Alerts",
+    "description": "Bookmark favorite homes and get notified when similar listings are added."
+  },
+  {
+    "title": "Digital Lease Management",
+    "description": "Send, receive, and e-sign lease documents within the app using verified IDs."
+  },
+  {
+    "title": "Dark Mode & Responsive UI",
+    "description": "Clean, responsive interface with both light and dark themes for better readability."
+  }
+],
+  "challenges": [
+  {
+    "title": "Scalable Property Indexing",
+    "description": "Built a real-time search index with Elasticsearch to handle growing property volumes and ensure fast results."
+  },
+  {
+    "title": "Spam & Fraud Prevention",
+    "description": "Used ML classifiers and manual moderation to detect fake listings and prevent scams."
+  },
+  {
+    "title": "Cross-Region Localization",
+    "description": "Implemented dynamic currency, unit systems, and translations to support multi-country use."
+  },
+  {
+    "title": "Chat Moderation & Privacy",
+    "description": "Integrated rule-based message filtering and end-to-end encryption to protect user data."
+  },
+  {
+    "title": "Lease Document Workflow",
+    "description": "Designed an e-sign flow using DocuSign API with secure audit logs and fallback for offline handling."
+  }
+],
   "techDetails": {
     "frontend": ["Swift", "SwiftUI", "AVFoundation"],
     "backend": ["Firebase", "iCloud"],
