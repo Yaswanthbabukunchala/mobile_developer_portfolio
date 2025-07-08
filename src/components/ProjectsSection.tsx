@@ -1,14 +1,9 @@
-
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { ExternalLink, Github, Play, Eye, Calendar, Users, Star, Smartphone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Users, Star, Smartphone, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ProjectsSection = () => {
-  const [filter, setFilter] = useState("All");
-  
   const projects = [
     // Cars Category
     {
@@ -67,7 +62,7 @@ const ProjectsSection = () => {
     {
   id: 5,
   title: "Planner Pro",
-  description: "Planner Pro is a premium daily planner with calendar, tasks, notes, and focus mode.",
+  description: "Planner Pro is a premium daily planner with calendar, tasks, notes, and focus mode.",
   image: "/placeholder_5.jpeg?height=400&width=600",
   category: "Productivity",
   platform: "Cross-Platform",
@@ -177,14 +172,7 @@ const ProjectsSection = () => {
     // Rent Apps Category
     
   ];
-
-  const categories = ["All", "Home Services", "Travel / Navigation", "Automotive", "Fitness", "Productivity",];
-  
-  const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
-  return (
+return (
     <section id="projects" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-purple-900/10 to-blue-900/10"></div>
       
@@ -204,33 +192,9 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12 overflow-x-auto"
-        >
-          <div className="glass-effect rounded-full p-2 flex space-x-2 min-w-max">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
-                  filter === category
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/10"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -255,25 +219,7 @@ const ProjectsSection = () => {
                     {project.platform}
                   </Badge>
                 </div>
-
-                {/* Overlay Buttons */}
-                <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {project.playStore && (
-                    <a href={project.playStore} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
-                        <Play className="h-4 w-4 mr-1" />
-                        Play Store
-                      </Button>
-                    </a>
-                  )}
-                  <Link to={`/project/${project.id}`}>
-                    <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
-                      <Eye className="h-4 w-4 mr-1" />
-                      Details
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+                 </div>
 
               {/* Project Content */}
               <div className="p-6">
@@ -286,10 +232,21 @@ const ProjectsSection = () => {
                     <span className="text-sm text-muted-foreground">{project.stats.rating}</span>
                   </div>
                 </div>
-
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
+                 {/* Title and Details Button */}
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <a 
+                    href={`/project/${project.id}`}
+                    className="flex-shrink-0"
+                  >
+                    <Button size="sm" variant="secondary" className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 hover:from-blue-500/30 hover:to-purple-500/30 hover:text-blue-300 hover:shadow-lg hover:shadow-blue-500/25 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:scale-105">
+                      <Eye className="h-4 w-4 mr-1" />
+                      Details
+                    </Button>
+                  </a>
+                </div>
                 
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
                   {project.description}

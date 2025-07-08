@@ -1,7 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Play, Code, Smartphone, Globe, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Code, Smartphone, Globe, ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const techIcons = [
@@ -16,13 +14,6 @@ const HeroSection = () => {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-    const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -66,35 +57,12 @@ const HeroSection = () => {
               Transforming ideas into powerful, scalable mobile applications.
             </motion.p>
 
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-base sm:text-lg px-6 sm:px-8 py-3 glow-shadow font-heading"
-                onClick={scrollToProjects}
-              >
-                View Projects <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-base sm:text-lg px-6 sm:px-8 py-3 font-heading"
-              >
-                <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Download Resume
-              </Button>
-            </motion.div>
-
             {/* Floating Tech Icons */}
             <motion.div 
               className="flex justify-center lg:justify-start space-x-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.6 }}
             >
               {techIcons.map((tech, index) => (
                 <motion.div
