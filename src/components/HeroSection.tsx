@@ -16,6 +16,12 @@ const HeroSection = () => {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+    const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
 
   return (
@@ -69,7 +75,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-base sm:text-lg px-6 sm:px-8 py-3 glow-shadow font-heading"
-                onClick={scrollToAbout}
+                onClick={scrollToProjects}
               >
                 View Projects <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
