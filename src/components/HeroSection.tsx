@@ -10,6 +10,13 @@ const HeroSection = () => {
     { icon: Globe, name: "Swift", delay: 0.6 },
     { icon: Code, name: "Kotlin", delay: 0.2 },
   ];
+   const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -59,11 +66,19 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3 glow-shadow font-heading">
-                View Projects <ArrowRight className="ml-2 h-5 w-5" />
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-base sm:text-lg px-6 sm:px-8 py-3 glow-shadow font-heading"
+                onClick={scrollToAbout}
+              >
+                View Projects <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-lg px-8 py-3 font-heading">
-                <Download className="mr-2 h-5 w-5" />
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-base sm:text-lg px-6 sm:px-8 py-3 font-heading"
+              >
+                <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Download Resume
               </Button>
             </motion.div>
@@ -144,9 +159,9 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Made Responsive */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -154,9 +169,10 @@ const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="cursor-pointer"
+            className="cursor-pointer p-2"
+            onClick={scrollToAbout}
           >
-            <ChevronDown className="h-8 w-8 text-muted-foreground" />
+            <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground hover:text-foreground transition-colors" />
           </motion.div>
         </motion.div>
       </div>
