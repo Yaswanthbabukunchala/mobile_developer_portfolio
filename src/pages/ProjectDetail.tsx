@@ -36,6 +36,20 @@ const ProjectDetail = () => {
     }, 100);
   };
 
+  // Custom Play Store Icon Component
+  const PlayStoreIcon = ({ className = "h-4 w-4" }) => (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+    </svg>
+  );
+
+  // Custom App Store Icon Component
+  const AppStoreIcon = ({ className = "h-4 w-4" }) => (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M17.05,20.28C16.58,20.63 16.17,20.96 15.39,21.06C14.37,21.21 13.97,20.66 12.5,20.66C11.03,20.66 10.58,21.05 9.64,21.21C8.86,21.35 8.40,20.96 7.96,20.28C5.32,16.7 5.67,11.59 8.93,9.43C9.87,8.75 11.25,8.42 12.5,8.42C13.75,8.42 15.13,8.75 16.07,9.43C19.33,11.59 19.68,16.7 17.05,20.28M12.18,2.5C11.95,2.5 11.72,2.5 11.5,2.5C11.34,2.5 11.18,2.5 11.03,2.5C10.21,2.5 9.43,2.84 8.93,3.5C8.43,4.16 8.25,5.03 8.25,5.85C8.25,6.67 8.43,7.54 8.93,8.2C9.43,8.86 10.21,9.2 11.03,9.2C11.18,9.2 11.34,9.2 11.5,9.2C11.72,9.2 11.95,9.2 12.18,9.2C13,9.2 13.78,8.86 14.28,8.2C14.78,7.54 14.96,6.67 14.96,5.85C14.96,5.03 14.78,4.16 14.28,3.5C13.78,2.84 13,2.5 12.18,2.5Z" />
+    </svg>
+  );
+
   if (!project) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
@@ -64,19 +78,8 @@ const ProjectDetail = () => {
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Portfolio</span>
             </button>
-            <div className="flex space-x-4">
-              <Button variant="outline" size="sm" className="border-blue-400 text-blue-400" asChild>
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 mr-2" />
-                  Code
-                </a>
-              </Button>
-              <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600" asChild>
-                <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  App Link
-                </a>
-              </Button>
+            <div className="flex items-center">
+              {/* Header content without buttons */}
             </div>
           </div>
         </div>
@@ -303,7 +306,7 @@ const ProjectDetail = () => {
                 </div>
               </div>
 
-              {/* App Links Boxes */}
+              {/* App Links Boxes with proper store icons */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="glass-effect rounded-xl p-4 premium-shadow">
                   <h4 className="text-sm font-semibold text-white mb-3 text-center">Play Store</h4>
@@ -312,7 +315,7 @@ const ProjectDetail = () => {
                     asChild
                   >
                     <a href={project.playStoreLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3 mr-1" />
+                      <PlayStoreIcon className="h-3 w-3 mr-1" />
                       Get App
                     </a>
                   </Button>
@@ -325,7 +328,7 @@ const ProjectDetail = () => {
                     asChild
                   >
                     <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3 mr-1" />
+                      <AppStoreIcon className="h-3 w-3 mr-1" />
                       Get App
                     </a>
                   </Button>

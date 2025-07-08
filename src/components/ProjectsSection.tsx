@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, Star, Smartphone, Eye } from "lucide-react";
+import { Calendar, Users, Star, Smartphone, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -242,7 +242,7 @@ return (
                     className="flex-shrink-0"
                   >
                     <Button size="sm" variant="secondary" className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 hover:from-blue-500/30 hover:to-purple-500/30 hover:text-blue-300 hover:shadow-lg hover:shadow-blue-500/25 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:scale-105">
-                      <Eye className="h-4 w-4 mr-1" />
+                      <ArrowRight className="h-4 w-4 mr-1" />
                       Details
                     </Button>
                   </a>

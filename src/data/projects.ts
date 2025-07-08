@@ -62,8 +62,8 @@ export const projects: Record<string, Project> = {
     tags: ["Flutter", "Firebase", "Google Maps", "Payment Gateway", "Push Notifications", "Analytics", "ML Integration", "Sustainability", "Real-time Tracking"],
     github: "https://github.com/example/ecodelivery",
     demo: "https://ecodelivery-demo.com",
-    playStoreLink: "https://play.google.com/store/apps/details?id=com.ulmon.android.playparis&hl=en_IN",
-    appStoreLink: "https://apps.apple.com/app/ecodelivery/id123456789",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.fixail.android&hl=en_IN",
+    appStoreLink: "https://apps.apple.com/in/app/fixail-your-home-service-app/id1663600200",
     stats: {
       downloads: "50K+",
       rating: 4.8,
@@ -158,6 +158,8 @@ challenges: [
     "tags": ["React Native", "Redux", "Google Maps", "Offline Support", "Cultural Data", "Audio Guides"],
     "github": "https://github.com/example/paris-travel-guide",
     "demo": "https://parisguide-demo.com",
+    "playStoreLink": "https://play.google.com/store/apps/details?id=com.ulmon.android.playparis&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/us/app/paris-travel-guide/id330954821",
     "stats": {
       "downloads": "100K+",
       "rating": 4.6,
@@ -249,6 +251,8 @@ challenges: [
   "tags": ["React", "Node.js", "MongoDB", "Inventory Management", "CRM", "Analytics"],
   "github": "https://github.com/example/carsforsale-dealer",
   "demo": "https://dealer-demo.carsforsale.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.carsforsale.dealerspider&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/us/app/carsforsale-com-dealer/id980764280",
   "stats": {
     "downloads": "30K+",
     "rating": 4.5,
@@ -340,6 +344,8 @@ challenges: [
   "tags": ["Flutter", "Workout Plans", "Live Coaching", "Health Tracking", "Firebase"],
   "github": "https://github.com/example/smartgym",
   "demo": "https://smartgym-app.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.actinate.actinategym&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/us/app/smartgym-gym-home-workouts/id922744883",
   "stats": {
     "downloads": "80K+",
     "rating": 4.7,
@@ -431,6 +437,8 @@ challenges: [
   "tags": ["Anonymous Posting", "React Native", "Firebase", "Real-Time Feed", "Moderation AI"],
   "github": "https://github.com/example/spill",
   "demo": "https://spill-app.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.appxy.planner&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/us/app/planner-pro-daily-planner/id571588936",
   "stats": {
     "downloads": "120K+",
     "rating": 4.4,
@@ -522,8 +530,8 @@ challenges: [
   "tags": ["Flutter", "Finance", "Budget Tracker", "Data Visualization", "SQLite"],
   "github": "https://github.com/example/money-manager",
   "demo": "https://money-manager-demo.com",
-  playStoreLink: "play.google.com/store/apps/details?id=com.realbyteapps.moneymanagerfree ",
-  appStoreLink: "apps.apple.com/us/app/money-manager-expense-budget/id560481810",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.realbyteapps.moneymanagerfree&hl=en_IN",
+  "appStoreLink": "https://apps.apple.com/us/app/money-manager-expense-budget/id560481810",
   "stats": {
     "downloads": "250K+",
     "rating": 4.8,
@@ -615,6 +623,8 @@ challenges: [
   "tags": ["React Native", "Health Tracker", "Reminders", "Notifications", "Wearables"],
   "github": "https://github.com/example/waterminder",
   "demo": "https://waterminder-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.funnmedia.waterminder",
+  "appStoreLink": "https://apps.apple.com/us/app/water-tracker-by-waterminder/id653031147",
   "stats": {
     "downloads": "300K+",
     "rating": 4.6,
@@ -710,6 +720,8 @@ challenges: [
   "tags": ["React Native", "Health Tracker", "Reminders", "Notifications", "Wearables"],
   "github": "https://github.com/example/waterminder",
   "demo": "https://waterminder-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=pedometer.steptracker.calorieburner.stepcounter&hl=en_IN",
+  "appStoreLink": "https://apps.apple.com/us/app/pedometer-%CE%B1-step-counter/id1027151285",
   "stats": {
     "downloads": "300K+",
     "rating": 4.6,
@@ -803,6 +815,8 @@ challenges: [
   "tags": ["React Native", "Content Curation", "Bookmarking", "User Profiles", "Push Notifications"],
   "github": "https://github.com/example/deepstash-clone",
   "demo": "https://deepstash-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.deepstash&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/us/app/deepstash-smarter-every-day/id1445023295",
   "stats": {
     "downloads": "1M+",
     "rating": 4.8,
@@ -897,6 +911,8 @@ challenges: [
   "tags": ["iOS", "Video Editing", "Cloud Sync", "Memory Journal", "Notifications"],
   "github": "https://github.com/example/1se-video-diary",
   "demo": "https://1se-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=co.onese.android&hl=en",
+    "appStoreLink": "https://apps.apple.com/us/app/1-second-everyday-video-diary/id587823548",
   "stats": {
     "downloads": "2M+",
     "rating": 4.9,
@@ -989,10 +1005,12 @@ challenges: [
   "tags": ["Flutter", "Firebase", "Stripe", "Maps API", "Push Notifications"],
   "github": "https://github.com/example/kraven-app",
   "demo": "https://kraven-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=com.kraven&hl=en_IN",
+  "appStoreLink": "https://apps.apple.com/in/app/kraven-food-delivery/id1481029765",
   "stats": {
-    "downloads": "1M+",
-    "rating": 4.7,
-    "users": "600K+",
+    "downloads": "50+",
+    "rating": 5.0,
+    "users": "16K+",
     "reviews": "22K"
   },
   "timeline": {
@@ -1083,6 +1101,8 @@ challenges: [
   "tags": ["iOS", "Video Editing", "Cloud Sync", "Memory Journal", "Notifications"],
   "github": "https://github.com/example/1se-video-diary",
   "demo": "https://1se-demo.com",
+  "playStoreLink": "https://play.google.com/store/apps/details?id=au.com.rent&hl=en_IN",
+    "appStoreLink": "https://apps.apple.com/au/app/rent-com-au-rental-properties/id1416560686",
   "stats": {
     "downloads": "2M+",
     "rating": 4.9,
