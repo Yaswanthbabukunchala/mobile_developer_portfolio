@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Github, Play, Calendar, Users, Star, Award, Zap, Shield, Smartphone, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Play, Calendar, Users, Star, Award, Zap, Shield, Smartphone, ChevronLeft, ChevronRight, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -12,6 +12,12 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const [activeMedia, setActiveMedia] = useState("images");
   const [project, setProject] = useState<Project | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (id) {
@@ -25,6 +31,22 @@ const ProjectDetail = () => {
     }
   }, [id, navigate]);
 
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      setIsMouseDown(false);
+    };
+
+    if (isMouseDown) {
+      document.addEventListener('mouseup', handleGlobalMouseUp);
+      document.addEventListener('mouseleave', handleGlobalMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+      document.removeEventListener('mouseleave', handleGlobalMouseUp);
+    };
+  }, [isMouseDown]);
+
   const handleBackToPortfolio = () => {
     navigate('/', { replace: true });
     // Small delay to ensure navigation completes before scrolling
@@ -34,6 +56,86 @@ const ProjectDetail = () => {
         projectsSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleVideoClick = () => {
+    togglePlayPause();
+  };
+
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current && !isMouseDown) {
+      setCurrentTime(videoRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+    }
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (videoRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const newTime = (clickX / rect.width) * duration;
+      videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  const handleProgressMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsMouseDown(true);
+    handleProgressClick(e);
+  };
+
+  const handleProgressMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMouseDown && videoRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const newTime = Math.max(0, Math.min((clickX / rect.width) * duration, duration));
+      videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  const handleProgressMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleMouseEnter = () => {
+    setShowControls(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (isPlaying) {
+      setShowControls(false);
+    }
   };
 
   // Custom Play Store Icon Component
@@ -141,53 +243,138 @@ const ProjectDetail = () => {
             </div>
 
             {/* Media Content */}
-    {activeMedia === "images" ? (
-      <div className="relative">
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {Array.from({ length: Math.ceil(project.images.length / 3) }).map((_, slideIndex) => (
-              <CarouselItem key={slideIndex}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {project.images
-                    .slice(slideIndex * 3, slideIndex * 3 + 3)
-                    .map((image, imageIndex) => (
-                      <motion.div
-                        key={slideIndex * 3 + imageIndex}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: imageIndex * 0.1 }}
-                        className="overflow-hidden rounded-lg"
-                      >
-                        <img
-                          src={image}
-                          alt={`${project.title} Screenshot ${slideIndex * 3 + imageIndex + 1}`}
-                          className="w-full h-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-                        />
-                      </motion.div>
-                  ))}
+            {activeMedia === "images" ? (
+              <div className="relative">
+                <Carousel
+                  opts={{ align: "start", loop: true }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {Array.from({ length: Math.ceil(project.images.length / 3) }).map((_, slideIndex) => (
+                      <CarouselItem key={slideIndex}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                          {project.images
+                            .slice(slideIndex * 3, slideIndex * 3 + 3)
+                            .map((image, imageIndex) => (
+                              <motion.div
+                                key={slideIndex * 3 + imageIndex}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: imageIndex * 0.1 }}
+                                className="overflow-hidden rounded-lg"
+                              >
+                                <img
+                                  src={image}
+                                  alt={`${project.title} Screenshot ${slideIndex * 3 + imageIndex + 1}`}
+                                  className="w-full h-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                                />
+                              </motion.div>
+                          ))}
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-4" />
+                  <CarouselNext className="right-4" />
+                </Carousel>
+              </div>
+            ) : (
+              <div 
+                className="relative aspect-video rounded-lg overflow-hidden group cursor-pointer"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleVideoClick}
+              >
+                <video
+                  ref={videoRef}
+                  className="w-full h-full rounded-lg object-cover"
+                  onPlay={handleVideoPlay}
+                  onPause={handleVideoPause}
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  controls={false}
+                >
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Custom Play/Pause Button Overlay */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                  showControls ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <motion.button
+                    onClick={togglePlayPause}
+                    className="bg-black/50 hover:bg-black/70 rounded-full p-4 transition-all duration-300 backdrop-blur-sm"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {isPlaying ? (
+                      <Pause className="h-12 w-12 text-white" />
+                    ) : (
+                      <Play className="h-12 w-12 text-white ml-1" />
+                    )}
+                  </motion.button>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-4" />
-          <CarouselNext className="right-4" />
-        </Carousel>
-      </div>
-    ) : (
-      <div className="aspect-video rounded-lg overflow-hidden">
-        <iframe
-          src={project.video}
-          className="w-full h-full"
-          allowFullScreen
-          title={`${project.title} Demo Video`}
-        />
-      </div>
-    )}
-  </div>
-</motion.div>
+
+                {/* Simple Controls Overlay */}
+                <div className={`absolute bottom-0 left-0 right-0 transition-opacity duration-300 ${
+                  showControls ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <div className="flex items-center space-x-4">
+                      {/* Play/Pause Button */}
+                      <button
+                        onClick={togglePlayPause}
+                        className="text-white hover:text-gray-300 transition-colors"
+                      >
+                        {isPlaying ? (
+                          <Pause className="h-6 w-6" />
+                        ) : (
+                          <Play className="h-6 w-6" />
+                        )}
+                      </button>
+                      
+                      {/* Time Display */}
+                      <span className="text-white text-sm font-mono">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                      
+                      {/* Progress Bar */}
+                      <div className="flex-1 relative">
+                        <div 
+                          className="w-full h-1 bg-white/30 cursor-pointer group"
+                          onMouseDown={handleProgressMouseDown}
+                          onMouseMove={handleProgressMouseMove}
+                          onMouseUp={handleProgressMouseUp}
+                          onMouseLeave={handleProgressMouseUp}
+                        >
+                          {/* Progress fill */}
+                          <div 
+                            className="absolute left-0 top-0 h-full bg-white transition-all duration-100"
+                            style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Play Button for Initial State */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-6 shadow-2xl"
+                    >
+                      <Play className="h-16 w-16 text-white ml-2" />
+                    </motion.div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </motion.div>
 
         {/* Project Stats */}
         <motion.div
@@ -218,6 +405,7 @@ const ProjectDetail = () => {
           </div>
         </motion.div>
 
+        {/* Rest of the component remains the same... */}
         {/* Project Description */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
