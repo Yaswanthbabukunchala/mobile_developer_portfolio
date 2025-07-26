@@ -151,3 +151,12 @@
     display: none;
   }
 }
+
+body, html {
+  user-select: none;
+}
+
+body *:not(input):not(textarea):not(button) {
+  outline: none !important;
+  caret-color: transparent !important;
+}

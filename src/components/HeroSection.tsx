@@ -34,7 +34,7 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-heading"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-sans"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -79,7 +79,7 @@ const HeroSection = () => {
                       <tech.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                     </div>
                   </div>
-                  <span className="mt-2 text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors font-heading">
+                  <span className="mt-2 text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors font-sans">
                     {tech.name}
                   </span>
                 </motion.div>

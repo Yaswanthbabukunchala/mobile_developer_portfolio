@@ -147,8 +147,10 @@ const ProjectDetail = () => {
 
   // Custom App Store Icon Component
   const AppStoreIcon = ({ className = "h-4 w-4" }) => (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M17.05,20.28C16.58,20.63 16.17,20.96 15.39,21.06C14.37,21.21 13.97,20.66 12.5,20.66C11.03,20.66 10.58,21.05 9.64,21.21C8.86,21.35 8.40,20.96 7.96,20.28C5.32,16.7 5.67,11.59 8.93,9.43C9.87,8.75 11.25,8.42 12.5,8.42C13.75,8.42 15.13,8.75 16.07,9.43C19.33,11.59 19.68,16.7 17.05,20.28M12.18,2.5C11.95,2.5 11.72,2.5 11.5,2.5C11.34,2.5 11.18,2.5 11.03,2.5C10.21,2.5 9.43,2.84 8.93,3.5C8.43,4.16 8.25,5.03 8.25,5.85C8.25,6.67 8.43,7.54 8.93,8.2C9.43,8.86 10.21,9.2 11.03,9.2C11.18,9.2 11.34,9.2 11.5,9.2C11.72,9.2 11.95,9.2 12.18,9.2C13,9.2 13.78,8.86 14.28,8.2C14.78,7.54 14.96,6.67 14.96,5.85C14.96,5.03 14.78,4.16 14.28,3.5C13.78,2.84 13,2.5 12.18,2.5Z" />
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path d="M17.564 13.222c-.019-2.043 1.668-3.021 1.744-3.067-0.951-1.389-2.429-1.58-2.951-1.601-1.257-.127-2.454.736-3.09.736-.636 0-1.62-.717-2.667-.697-1.372.02-2.637.797-3.34 2.025-1.429 2.477-.364 6.142 1.025 8.153.678.98 1.484 2.08 2.544 2.04 1.027-.04 1.414-.658 2.655-.658 1.241 0 1.579.658 2.667.638 1.104-.02 1.797-.997 2.47-1.98.78-1.14 1.104-2.247 1.122-2.304-.025-.012-2.154-.826-2.174-3.28zm-2.563-5.98c.555-.672.93-1.606.827-2.542-.8.032-1.767.532-2.342 1.204-.514.594-.966 1.543-.797 2.448.844.066 1.757-.428 2.312-1.11z" />
+      </g>
     </svg>
   );
 
@@ -584,35 +586,6 @@ const ProjectDetail = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="text-center"
-        >
-          <div className="glass-effect rounded-2xl p-8 premium-shadow">
-            <h2 className="text-3xl font-bold text-white mb-4">Interested in Similar Project?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can bring your mobile app vision to life with the same level of excellence and innovation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule Consultation
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black"
-                onClick={handleBackToPortfolio}
-              >
-                View More Projects
-              </Button>
             </div>
           </div>
         </motion.div>

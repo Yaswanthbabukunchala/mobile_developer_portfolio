@@ -43,8 +43,8 @@ const Navigation = () => {
               scrolled ? "" : "glass-effect px-4 py-2 rounded-lg"
             }`}
           >
-            <span className="text-gradient font-heading">Mobile</span>
-            <span className="text-foreground font-heading">Dev</span>
+            <span className="text-gradient font-sans">Mobile</span>
+            <span className="text-foreground font-sans">Dev</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -56,7 +56,7 @@ const Navigation = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium font-heading"
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium font-sans"
               >
                 {item.name}
               </motion.a>
@@ -89,7 +89,7 @@ const Navigation = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-muted-foreground hover:text-foreground transition-colors font-heading"
+                className="block py-2 text-muted-foreground hover:text-foreground transition-colors font-sans"
               >
                 {item.name}
               </a>

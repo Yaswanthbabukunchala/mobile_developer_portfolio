@@ -30,7 +30,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-heading">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-sans">
             About <span className="text-gradient">Me</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6 rounded-full"></div>
@@ -54,7 +54,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                   <Code className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold font-heading text-gradient">
+                <h3 className="text-3xl font-bold font-sans text-gradient">
                   My Journey
                 </h3>
               </div>
@@ -93,7 +93,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
                   <Award className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold font-heading text-gradient">
+                <h3 className="text-2xl font-bold font-sans text-gradient">
                   Skills & Expertise
                 </h3>
               </div>
@@ -108,7 +108,7 @@ const AboutSection = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold font-heading text-foreground">{skill.name}</span>
+                      <span className="font-semibold font-sans text-foreground">{skill.name}</span>
                       <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-2.5">
@@ -150,10 +150,10 @@ const AboutSection = () => {
                   <stat.icon className="h-7 w-7 text-white" />
                 </div>
               </div>
-              <div className="text-3xl font-bold font-heading text-gradient mb-2">
+              <div className="text-3xl font-bold font-sans text-gradient mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-muted-foreground font-heading font-medium">
+              <div className="text-sm text-muted-foreground font-sans font-medium">
                 {stat.label}
               </div>
             </motion.div>

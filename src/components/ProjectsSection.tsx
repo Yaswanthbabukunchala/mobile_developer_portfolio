@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Calendar, Users, Star, Smartphone, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ProjectsSection = () => {
   const projects = [
@@ -204,14 +205,13 @@ return (
               className="project-card group"
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden rounded-t-2xl">
+              <Link to={`/project/${project.id}`} className="block relative overflow-hidden rounded-t-2xl">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
                 {/* Platform Badge */}
                 <div className="absolute top-4 left-4">
                   <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm">
@@ -219,7 +219,7 @@ return (
                     {project.platform}
                   </Badge>
                 </div>
-                 </div>
+              </Link>
 
               {/* Project Content */}
               <div className="p-6">
