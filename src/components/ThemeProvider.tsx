@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'dark' | 'light';
+type Theme = 'dark';
 
 type ThemeProviderContextType = {
   theme: Theme;
@@ -15,13 +15,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
+    root.classList.remove('dark');
     root.classList.add(theme);
   }, [theme]);
 
   const value = {
     theme,
-    setTheme,
+    setTheme: () => {}, // setTheme does nothing now
   };
 
   return (

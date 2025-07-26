@@ -61,12 +61,10 @@ const Navigation = () => {
                 {item.name}
               </motion.a>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"
